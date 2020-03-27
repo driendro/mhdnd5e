@@ -19,6 +19,7 @@ class MainWid(ScreenManager):
         super(MainWid, self).__init__()
         # Control de Path
         self.APP_PATH = os.getcwd()
+        self.DB_PATH = self.APP_PATH + '/database.db'
 
         self.MenuWid = MenuWid(self)
 
@@ -26,6 +27,11 @@ class MainWid(ScreenManager):
         wid = Screen(name='menu')
         wid.add_widget(self.MenuWid)
         self.add_widget(wid)
+
+        self.goto_menu()
+
+    def goto_menu(self):
+        self.current = 'menu'
 
 class MainApp(App):
     title = "Loot Monster Hunter"
