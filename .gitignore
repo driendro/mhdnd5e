@@ -1,6 +1,6 @@
-heidisql/
 imagen/
-mhdnd5/
+test/
 .vscode/
 __pycache__/
 *.db
+*.code-workspace

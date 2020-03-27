@@ -1,0 +1,5 @@
+Kivy==1.11.1
+kivy-deps.glew==0.2.0
+kivy-deps.gstreamer==0.2.0
+kivy-deps.sdl2==0.2.0
+Kivy-Garden==0.1.4
