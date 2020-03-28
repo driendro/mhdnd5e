@@ -1,5 +1,5 @@
 Aplicacion de escritorio desarrollada con:
 
     -Python 3
-    -Tkinter
+    -Kivy
     -sqlite3

@@ -11,6 +11,7 @@ Config.set('graphics', 'width', 400)
 Config.set('graphics', 'height', 500)
 
 from vistas.menu import MenuWid
+from vistas.creature.creature import CreatureListWid
 
 
 
@@ -21,11 +22,16 @@ class MainWid(ScreenManager):
         self.APP_PATH = os.getcwd()
         self.DB_PATH = self.APP_PATH + '/database.db'
 
-        self.MenuWid = MenuWid(self)
+        self.MenuWid = MenuWid(self) #Screen: menu
+        self.CreatureListWid = CreatureListWid(self) #Screen: creaturelist
 
 
         wid = Screen(name='menu')
         wid.add_widget(self.MenuWid)
+        self.add_widget(wid)
+
+        wid = Screen(name='creaturelist')
+        wid.add_widget(self.CreatureListWid)
         self.add_widget(wid)
 
         self.goto_menu()
@@ -33,6 +39,10 @@ class MainWid(ScreenManager):
     def goto_menu(self):
         self.current = 'menu'
 
+    def goto_creturelist(self):
+        self.CreatureListWid.check_memory()
+        self.current = 'creaturelist'
+    
 class MainApp(App):
     title = "Loot Monster Hunter"
     def build(self):

@@ -25,3 +25,6 @@ class MenuWid(BoxLayout):
     
     def regen_database(self):
         conectar_db(self.mainwid.DB_PATH)
+
+    def creature_list(self):
+        self.mainwid.goto_creturelist()
