@@ -7,10 +7,8 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
 from kivy.lang import Builder
 
-from db import db_create
-
 # Cargamos el Archivo KV, donde esta el formato de la wid
-Builder.load_file(os.getcwd()+'/vistas/creature/creature.kv')
+Builder.load_file(os.getcwd()+'/vistas/creature/listview.kv')
 
 class CreatureListWid(BoxLayout):
     '''
@@ -42,4 +40,5 @@ class NewCreatureButton(Button):
         self.mainwid = mainwid
     
     def creature_new(self):
-        pass
+        print('cabezadegoma')
+        self.mainwid.goto_creaturecreate()

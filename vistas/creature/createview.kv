@@ -1,0 +1,45 @@
+<LeftLabel@Label>:
+    text_size: self.size
+    halingn: 'left'
+
+<CreatureCreateWid>:
+    orientation: 'vertical'
+
+    LeftLabel: # ------------------Nombre
+        text: 'Nombre:'
+    TextInput:
+        id: ti_nombre
+        multiline: False
+        hint_text: 'Nombre'
+    
+    LeftLabel: # ------------------Carves
+        text: 'Carves:'
+    TextInput:
+        id: ti_carve 
+        multiline: False
+        hint_text: 'Carves'
+    
+    LeftLabel: # ------------------Captures
+        text: 'Captures:'
+    TextInput:
+        id: ti_capture
+        multiline: False
+        hint_text: 'Captures'
+    
+    LeftLabel: # ------------------CR
+        text: 'CR: (en decimales)'
+    TextInput:
+        id: ti_cr
+        multiline: False
+        hint_text: 'CR'
+    
+    BoxLayout:
+        size_hint_y: 5
+
+    BoxLayout:
+        Button:
+            text: 'Aceptar'
+            on_press: root.insert_data()
+        Button:
+            text: 'Salir'
+            on_press: root.back_to_dbw()
