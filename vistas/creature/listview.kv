@@ -7,10 +7,28 @@
             spacing: 5
             size_hint_y: None
             cols: 1
-            row_default_height: root.height*0.2
+            row_default_height: root.height*0.1
             height: self.minimum_height
 
 <NewCreatureButton>:
     font_size: self.height*0.5
     text: '+'
     on_press: root.creature_new()
+
+<DetaileWid>:
+    data: ''
+    data_id: ''
+    canvas:
+        Color:
+            rgb: 0.2,0.2,0.2
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    Label:
+        size_hint_x: 0.9
+        size_font: self.width*0.1
+        text: root.data
+    Button:
+        text: 'Editar'
+        size_hint_x: 0.1
+        size_hint_x: 0.5

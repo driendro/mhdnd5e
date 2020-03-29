@@ -25,9 +25,22 @@ class CreatureListWid(BoxLayout):
         regenerarlos desde la db
         '''
         self.ids.conteiner.clear_widgets()
+        # Obtenemos los datos de la db
+        con = sqlite3.connect(self.mainwid.DB_PATH)
+        cursor = con.cursor()
+        cursor.execute('select id, nombre, carves, capture, cr from main.loot_criatura')
+        # Recorremos los datos, y los mostramos en el DetaileWid()
+        for i in cursor:
+            wid = DetaileWid(self.mainwid)
+            r1 = i[1]+'(CR: '+str(i[4])+')'+'\n'
+            r2 = 'Capture: '+str(i[3])+'        '+'Carves: '+str(i[2])
+            wid.data_id = str(i[0])
+            wid.data = r1+r2
+            self.ids.conteiner.add_widget(wid)
 
         wid = NewCreatureButton(self.mainwid)
         self.ids.conteiner.add_widget(wid)
+        con.close()
 
 
 class NewCreatureButton(Button):
@@ -42,3 +55,14 @@ class NewCreatureButton(Button):
     def creature_new(self):
         print('cabezadegoma')
         self.mainwid.goto_creaturecreate()
+
+class DetaileWid(BoxLayout):
+    '''
+    Widget donde se muestra los detalles de la creatura, y el boton de edit
+    '''
+    def __init__(self, mainwid, *args, **kwargs):
+        super(DetaileWid, self).__init__()
+        self.mainwid = mainwid
+
+    def creature_update(self):
+        pass
