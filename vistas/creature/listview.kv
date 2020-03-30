@@ -26,9 +26,9 @@
             pos: self.pos
     Label:
         size_hint_x: 0.9
-        size_font: self.width*0.1
+        size_font: self.width*0.4
         text: root.data
     Button:
         text: 'Editar'
         size_hint_x: 0.1
-        size_hint_x: 0.5
+        on_press: root.creature_update(root.data_id)

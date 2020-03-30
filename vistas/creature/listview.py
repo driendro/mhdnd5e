@@ -64,5 +64,5 @@ class DetaileWid(BoxLayout):
         super(DetaileWid, self).__init__()
         self.mainwid = mainwid
 
-    def creature_update(self):
-        pass
+    def creature_update(self, data_id):
+        self.mainwid.goto_creatureupdate(data_id)
